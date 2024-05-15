@@ -9,9 +9,11 @@ eopepp_url = "https://www.eoppep.gr/index.php/el/announcements"
 parser = argparse.ArgumentParser(
             prog="eopeppFetcher", 
             description="A script that fetches EOPEPP announcements to lower the risk of loosing your exams.",
-            epilog="Author: Apostolos Chalis 2024 <achalis@acm.org"
+            epilog="Author: Apostolos Chalis 2024 <achalis@acm.org>"
         )
 
-parser.add_argument('-l', '--last')         # Last announcement
-parser.add_argument('-l1', '--level-1')     # Last + 1 
-parser.add_argument('-a', '--all')          # Every announcement
+parser.add_argument('-l', '--last', action='store_const', const = True, help="Last EOPEPP post")     # Last announcement
+parser.add_argument('-a', '--all', action='store_const', const = True, help="All EOPEPP posts (1st page only)")      # Every announcement
+
+args = parser.parse_args() 
+
